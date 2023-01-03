@@ -7,11 +7,21 @@
 
 import SwiftUI
 
+/*
+ Arquitetura MVVM
+ 
+ model - lógica do negócio
+ view - inteface gráfica
+ viewModel - verificação da lógica do regócio refletindo na view
+ */
+
 @main
-struct TodoListApp: App {
+struct TodoListApp: App { 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ListView()
+            }
         }
     }
 }
