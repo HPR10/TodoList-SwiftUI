@@ -9,16 +9,17 @@ import SwiftUI
 
 struct ListView: View {
     
-    @State var items: [String] = [
-        "Primeiro item da lista",
-        "Segundo item da lista",
-        "Terceiro..."
+    @State var items: [ItemModel] = [
+      ItemModel(title: "Primeiro item da lista", iscompleted: false),
+      ItemModel(title: "Segundo item da lista", iscompleted: true),
+      ItemModel(title: "Terceiro", iscompleted: false)
     ]
     
     var body: some View {
         List {
             // Percorrendo os 3 elementos do array items.
-            ForEach(items, id: \.self) { item in ListRowView(title: item)
+            ForEach(items) { item in ListRowView(item: item)
+             
             }
         }
         .listStyle(InsetListStyle())
