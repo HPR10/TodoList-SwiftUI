@@ -16,6 +16,12 @@ struct ListView: View {
             // Percorrendo os 3 elementos do array items.
             ForEach(listViewModel.items) { item in
                 ListRowView(item: item)
+                // controlando o marcado ou não da lista
+                    .onTapGesture {
+                        withAnimation(.linear) {
+                            listViewModel.updateItem(item: item)
+                        }
+                    }
             }
             // método para chamar remover o item da lista
             .onDelete(perform: listViewModel.deleteItem)
